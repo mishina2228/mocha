@@ -640,7 +640,7 @@ module Mocha
 
     # @private
     def method_signature
-      signature = "#{@mock.mocha_inspect}.#{@method_matcher.mocha_inspect}#{@parameters_matcher.mocha_inspect}"
+      signature = "#{@mock.mocha_inspect}.#{@method_matcher.mocha_inspect}#{@parameters_matcher.mocha_inspect}".dup
       signature << " #{@block_matcher.mocha_inspect}" if @block_matcher.mocha_inspect
       signature
     end
