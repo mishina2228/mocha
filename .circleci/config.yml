@@ -10,7 +10,8 @@ jobs:
     docker:
       - image: << parameters.docker-image >>
     environment:
-      MOCHA_OPTIONS=debug
+      MOCHA_OPTIONS: debug
+      RUBYOPT: --enable-frozen-string-literal
     steps:
       - checkout
       - run: ruby --version
