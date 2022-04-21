@@ -55,7 +55,7 @@ module Mocha
     end
 
     def call_description
-      description = "#{@mock.mocha_inspect}.#{@method_name}#{ParametersMatcher.new(@arguments).mocha_inspect}"
+      description = "#{@mock.mocha_inspect}.#{@method_name}#{ParametersMatcher.new(@arguments).mocha_inspect}".dup
       description << ' { ... }' unless @block.nil?
       description
     end
@@ -65,7 +65,7 @@ module Mocha
     end
 
     def result_description
-      desc = "# => #{@result.mocha_inspect}"
+      desc = "# => #{@result.mocha_inspect}".dup
       desc << " after yielding #{@yields.map(&:mocha_inspect).join(', then ')}" if @yields.any?
       desc
     end

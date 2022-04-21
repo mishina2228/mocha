@@ -630,7 +630,7 @@ module Mocha
 
     # @private
     def mocha_inspect
-      message = "#{@cardinality.anticipated_times}, #{@cardinality.invoked_times}: #{method_signature}"
+      message = "#{@cardinality.anticipated_times}, #{@cardinality.invoked_times}: #{method_signature}".dup
       message << "; #{@ordering_constraints.map(&:mocha_inspect).join('; ')}" unless @ordering_constraints.empty?
       if Mocha.configuration.display_matching_invocations_on_failure?
         message << @cardinality.actual_invocations
